@@ -121,29 +121,22 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@layer utilities {
-  .text-gold {
-    color: #FFD700;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-  .bg-gold {
-    background-color: #FFD700;
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 0;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  .border-gold {
-    border-color: #FFD700;
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-extrabold tracking-tight;
+    letter-spacing: -0.025em;
   }
-  .text-silver {
-    color: #C0C0C0;
-  }
-  .bg-silver {
-    background-color: #C0C0C0;
-  }
-  .border-silver {
-    border-color: #C0C0C0;
-  }
-  .shadow-gold {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-  }
-}
 
   button,
   input[type="button"],
@@ -176,6 +169,30 @@
   .btn:active,
   .button:active {
     transform: scale(0.98);
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: #FFD700;
+  }
+  .bg-gold {
+    background-color: #FFD700;
+  }
+  .border-gold {
+    border-color: #FFD700;
+  }
+  .text-silver {
+    color: #C0C0C0;
+  }
+  .bg-silver {
+    background-color: #C0C0C0;
+  }
+  .border-silver {
+    border-color: #C0C0C0;
+  }
+  .shadow-gold {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
   }
 }
 
