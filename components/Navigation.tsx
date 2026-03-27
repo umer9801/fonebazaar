@@ -44,11 +44,7 @@ export function Navigation() {
           <Link href="/" className="flex items-center gap-2">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className={`text-2xl font-extrabold tracking-tight transition-colors ${
-                scrolled
-                  ? 'bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent'
-                  : 'text-white drop-shadow-md'
-              }`}
+              className="text-2xl font-extrabold tracking-tight text-black transition-colors"
             >
               FONE BAZAAR
             </motion.div>
@@ -60,9 +56,7 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-medium transition-colors hover:text-indigo-500 ${
-                  scrolled ? 'text-gray-700' : 'text-white/90'
-                }`}
+                className="font-medium text-black transition-colors hover:text-black"
               >
                 {link.label}
               </Link>
@@ -70,9 +64,7 @@ export function Navigation() {
             {user?.role === 'admin' && (
               <Link
                 href="/admin"
-                className={`font-medium transition-colors hover:text-indigo-500 ${
-                  scrolled ? 'text-gray-700' : 'text-white/90'
-                }`}
+                className="font-medium text-black transition-colors hover:text-black"
               >
                 Admin
               </Link>
@@ -85,9 +77,7 @@ export function Navigation() {
             <Link href="/cart" className="relative">
               <motion.button
                 whileHover={{ scale: 1.1 }}
-                className={`p-2 rounded-xl transition-colors ${
-                  scrolled ? 'hover:bg-gray-100 text-gray-700' : 'text-white hover:bg-white/10'
-                }`}
+                className="p-2 rounded-xl bg-black text-white transition-colors hover:bg-gray-800"
               >
                 <ShoppingCart size={22} />
               </motion.button>
@@ -108,13 +98,13 @@ export function Navigation() {
             {/* Auth */}
             {user ? (
               <div className="hidden md:flex items-center gap-3">
-                <span className={`text-sm font-medium ${scrolled ? 'text-gray-600' : 'text-white/80'}`}>
+                <span className="text-sm font-medium text-black">
                   {user.name}
                 </span>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   onClick={logout}
-                  className="px-4 py-2 bg-indigo-600 text-white font-semibold text-sm rounded-xl hover:bg-indigo-700 transition-colors shadow-md"
+                  className="px-4 py-2 bg-black text-white font-semibold text-sm rounded-xl hover:bg-gray-800 transition-colors shadow-md"
                 >
                   Logout
                 </motion.button>
@@ -123,7 +113,7 @@ export function Navigation() {
               <Link href="/login" className="hidden md:block">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
-                  className="px-5 py-2 bg-indigo-600 text-white font-semibold text-sm rounded-xl hover:bg-indigo-700 transition-colors shadow-md"
+                  className="px-5 py-2 bg-black text-white font-semibold text-sm rounded-xl hover:bg-gray-800 transition-colors shadow-md"
                 >
                   Login
                 </motion.button>
@@ -134,9 +124,7 @@ export function Navigation() {
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.9 }}
-              className={`md:hidden p-2 rounded-xl transition-colors ${
-                scrolled ? 'hover:bg-gray-100 text-gray-700' : 'text-white hover:bg-white/10'
-              }`}
+              className="md:hidden p-2 rounded-xl bg-black text-white hover:bg-gray-800 transition-colors"
             >
               {isOpen ? <X size={22} /> : <Menu size={22} />}
             </motion.button>
@@ -158,7 +146,7 @@ export function Navigation() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="block px-4 py-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-xl font-medium transition-colors"
+                    className="block px-4 py-3 text-black hover:text-black hover:bg-gray-100 rounded-xl font-medium transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -167,7 +155,7 @@ export function Navigation() {
                   <Link
                     href="/admin"
                     onClick={() => setIsOpen(false)}
-                    className="block px-4 py-3 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-xl font-medium transition-colors"
+                    className="block px-4 py-3 text-black hover:text-black hover:bg-gray-100 rounded-xl font-medium transition-colors"
                   >
                     Admin
                   </Link>
@@ -176,13 +164,13 @@ export function Navigation() {
                   {user ? (
                     <button
                       onClick={() => { logout(); setIsOpen(false); }}
-                      className="w-full px-4 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors"
+                      className="w-full px-4 py-3 bg-black text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors"
                     >
                       Logout
                     </button>
                   ) : (
                     <Link href="/login" onClick={() => setIsOpen(false)}>
-                      <button className="w-full px-4 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors">
+                      <button className="w-full px-4 py-3 bg-black text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors">
                         Login
                       </button>
                     </Link>
