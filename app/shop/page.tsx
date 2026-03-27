@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -10,7 +10,7 @@ import { mockProducts, categoryLabels } from '@/lib/mockData';
 import { ServiceType } from '@/lib/types';
 import { Star } from 'lucide-react';
 
-export default function ShopPage() {
+function ShopContent() {
   const searchParams = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState<ServiceType | 'all'>(
     (searchParams.get('category') as ServiceType) || 'all'
@@ -206,5 +206,13 @@ export default function ShopPage() {
 
       <Footer />
     </main>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><span className="text-gray-400">Loading...</span></div>}>
+      <ShopContent />
+    </Suspense>
   );
 }
