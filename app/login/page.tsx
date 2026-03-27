@@ -20,7 +20,6 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-
     try {
       if (isLogin) {
         await login(email, password);
@@ -33,7 +32,6 @@ export default function LoginPage() {
     }
   };
 
-  // Demo credentials
   const fillDemo = () => {
     if (isLogin) {
       setEmail('admin@fonebazaar.com');
@@ -45,104 +43,65 @@ export default function LoginPage() {
     }
   };
 
+  const inputClass = "w-full px-5 py-3.5 bg-gray-50 border border-gray-200 text-black rounded-xl focus:outline-none focus:border-indigo-400 focus:bg-white transition-all placeholder-gray-400";
+
   return (
     <main className="bg-white min-h-screen">
       <Navigation />
 
-      <div className="flex items-center justify-center min-h-screen pt-16">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="w-full max-w-md"
-        >
-          <div className="bg-gradient-to-br from-gray-900 to-black border border-white/10 p-8 rounded-2xl">
+      <div className="flex items-center justify-center min-h-screen px-4 pt-16 pb-20">
+        <div className="w-full max-w-md">
+          {/* Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white border border-gray-100 p-10 rounded-3xl shadow-xl"
+          >
             {/* Header */}
-            <motion.div className="text-center mb-8">
-              <h1 className="text-4xl font-bold text-white mb-2">
+            <div className="text-center mb-8">
+              <Link href="/" className="inline-block mb-6">
+                <span className="text-2xl font-extrabold bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
+                  FONE BAZAAR
+                </span>
+              </Link>
+              <h1 className="text-3xl font-extrabold text-black mb-2">
                 {isLogin ? 'Welcome Back' : 'Create Account'}
               </h1>
-              <p className="text-gray-400">
-                {isLogin ? "Sign in to your account" : "Join FONE BAZAAR today"}
+              <p className="text-gray-400 text-sm">
+                {isLogin ? 'Sign in to your account' : 'Join FONE BAZAAR today'}
               </p>
-            </motion.div>
+            </div>
 
-            {/* Error Message */}
+            {/* Error */}
             {error && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mb-6 p-4 bg-red-500/20 border border-red-500 text-red-300 rounded-lg text-sm"
+                className="mb-6 p-4 bg-red-50 border border-red-200 text-red-600 rounded-xl text-sm"
               >
                 {error}
               </motion.div>
             )}
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4 mb-6">
-              {/* Name Field (Register Only) */}
+            <form onSubmit={handleSubmit} className="space-y-4 mb-4">
               {!isLogin && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                >
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 bg-gray-800 border border-white/20 text-white rounded-lg focus:outline-none focus:border-white/50 placeholder-gray-500"
-                  />
+                <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
+                  <input type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} required className={inputClass} />
                 </motion.div>
               )}
+              <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} required className={inputClass} />
+              <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required className={inputClass} />
 
-              {/* Email Field */}
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: !isLogin ? 0.1 : 0 }}
-              >
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 bg-gray-800 border border-white/20 text-white rounded-lg focus:outline-none focus:border-white/50 placeholder-gray-500"
-                />
-              </motion.div>
-
-              {/* Password Field */}
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: !isLogin ? 0.2 : 0.1 }}
-              >
-                <input
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="w-full px-4 py-3 bg-gray-800 border border-white/20 text-white rounded-lg focus:outline-none focus:border-white/50 placeholder-gray-500"
-                />
-              </motion.div>
-
-              {/* Submit Button */}
               <motion.button
                 type="submit"
                 disabled={isLoading}
-                whileHover={!isLoading ? { scale: 1.05 } : {}}
-                whileTap={!isLoading ? { scale: 0.95 } : {}}
-                transition={{ delay: !isLogin ? 0.3 : 0.2 }}
-                className="w-full py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors disabled:opacity-50 mt-6"
+                whileHover={!isLoading ? { scale: 1.02 } : {}}
+                whileTap={!isLoading ? { scale: 0.98 } : {}}
+                className="w-full py-4 bg-black text-white font-bold rounded-xl hover:bg-gray-900 transition-colors disabled:opacity-50 mt-2 shadow-lg"
               >
-                {isLoading
-                  ? 'Processing...'
-                  : isLogin
-                  ? 'Sign In'
-                  : 'Create Account'}
+                {isLoading ? 'Processing...' : isLogin ? 'Sign In' : 'Create Account'}
               </motion.button>
             </form>
 
@@ -150,46 +109,39 @@ export default function LoginPage() {
             <motion.button
               onClick={fillDemo}
               whileHover={{ scale: 1.02 }}
-              className="w-full py-3 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/5 transition-colors mb-6"
+              className="w-full py-3 border-2 border-gray-200 text-gray-600 font-semibold rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-colors mb-6 text-sm"
             >
-              {isLogin ? '📝 Demo: Admin Account' : '👤 Demo: New User'}
+              {isLogin ? '📝 Fill Demo: Admin Account' : '👤 Fill Demo: New User'}
             </motion.button>
 
-            {/* Toggle Mode */}
-            <div className="text-center space-y-4">
-              <p className="text-gray-400">
+            {/* Toggle */}
+            <div className="text-center space-y-3">
+              <p className="text-gray-400 text-sm">
                 {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
                 <button
-                  onClick={() => {
-                    setIsLogin(!isLogin);
-                    setError('');
-                    setEmail('');
-                    setPassword('');
-                    setName('');
-                  }}
-                  className="text-white font-semibold hover:text-gray-300 transition"
+                  onClick={() => { setIsLogin(!isLogin); setError(''); setEmail(''); setPassword(''); setName(''); }}
+                  className="text-indigo-600 font-semibold hover:text-indigo-700 transition"
                 >
                   {isLogin ? 'Sign Up' : 'Sign In'}
                 </button>
               </p>
-
-              <Link href="/" className="text-gray-400 hover:text-white transition text-sm">
+              <Link href="/" className="text-gray-400 hover:text-gray-600 transition text-sm block">
                 ← Back to Home
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Info Box */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-8 bg-blue-900/20 border border-blue-500/30 p-4 rounded-lg text-center text-blue-300 text-sm"
+            transition={{ delay: 0.3 }}
+            className="mt-6 bg-indigo-50 border border-indigo-100 p-4 rounded-2xl text-center text-indigo-600 text-sm"
           >
-            <p className="mb-2">Demo Credentials Available</p>
-            <p className="text-xs text-blue-400">Click "Demo" button to auto-fill test account</p>
+            <p className="font-semibold mb-1">Demo Credentials Available</p>
+            <p className="text-indigo-400 text-xs">Click the demo button above to auto-fill</p>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
       <Footer />
