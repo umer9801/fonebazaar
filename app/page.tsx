@@ -83,41 +83,43 @@ export default function Home() {
           transition={{ duration: 0.9, delay: 0.3 }}
           className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10"
         >
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-widest uppercase text-indigo-300 border border-indigo-400/40 rounded-full bg-indigo-500/10 backdrop-blur-sm"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.8 }}
+            className="inline-block mb-8"
           >
-            Premium Custom Services
-          </motion.span>
-          <motion.h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-xl">
+            <span className="inline-block px-6 py-2 bg-gradient-to-r from-gold/20 to-silver/20 text-gold font-bold text-sm uppercase tracking-widest border border-gold/30 rounded-full shadow-lg backdrop-blur-sm">
+              Premium Custom Services
+            </span>
+          </motion.div>
+          <motion.h1 className="text-6xl md:text-8xl font-black text-white mb-8 leading-tight drop-shadow-2xl">
             Create Something
-            <span className="block bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-gold via-silver to-gold bg-clip-text text-transparent animate-shimmer">
               Extraordinary
             </span>
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl text-white/80 mb-10 max-w-xl"
+            className="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Custom t-shirts, laser engraving, and 3D printing — all under one roof
+            Custom t-shirts, laser engraving, and 3D printing — all under one roof with premium quality
           </motion.p>
           <motion.div
-            className="flex gap-4 flex-wrap justify-center"
+            className="flex gap-6 flex-wrap justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <Link href="/shop">
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(99,102,241,0.5)' }}
+                whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255, 215, 0, 0.5)' }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-bold text-lg rounded-xl shadow-lg flex items-center gap-2"
+                className="px-10 py-5 bg-gradient-to-r from-gold to-silver text-black font-black text-xl rounded-2xl shadow-2xl flex items-center gap-3 hover:shadow-gold border-2 border-gold"
               >
-                Shop Now <ArrowRight size={18} />
+                Shop Now <ArrowRight size={20} />
               </motion.button>
             </Link>
             <Link href="/about">
@@ -308,7 +310,7 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-6 py-3 border-2 border-indigo-600 text-indigo-600 font-bold rounded-xl hover:bg-indigo-600 hover:text-white transition-all"
+              className="flex items-center gap-2 px-6 py-3 border-2 border-black text-black font-bold rounded-xl bg-white hover:bg-black hover:text-white transition-all"
             >
               View All <ArrowRight size={16} />
             </motion.button>
@@ -349,7 +351,7 @@ export default function Home() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-5 py-2 bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold text-sm rounded-xl hover:from-indigo-700 hover:to-indigo-600 transition-all shadow-md"
+                      className="px-5 py-2 bg-black text-white font-semibold text-sm rounded-xl hover:bg-neutral-900 transition-all shadow-md"
                     >
                       View Details
                     </motion.button>

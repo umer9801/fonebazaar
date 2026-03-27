@@ -98,7 +98,7 @@ export default function CheckoutPage() {
           <Link href="/shop">
             <motion.button
               whileHover={{ scale: 1.05 }}
-              className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700"
+              className="px-8 py-4 bg-black text-white font-bold rounded-lg hover:bg-neutral-900"
             >
               Continue Shopping
             </motion.button>

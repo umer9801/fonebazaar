@@ -58,8 +58,8 @@ export default function AdminUsersPage() {
                 <p><span className="font-semibold text-gray-600">Joined:</span> {new Date(u.createdAt).toLocaleDateString()}</p>
               </div>
               <div className="flex gap-2">
-                <motion.button whileHover={{ scale: 1.05 }} className="flex-1 py-2 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors text-sm">Edit</motion.button>
-                <motion.button whileHover={{ scale: 1.05 }} className="flex-1 py-2 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors text-sm">Remove</motion.button>
+                <motion.button whileHover={{ scale: 1.05 }} className="flex-1 py-2 bg-black text-white font-semibold rounded-xl hover:bg-neutral-900 transition-colors text-sm">Edit</motion.button>
+                <motion.button whileHover={{ scale: 1.05 }} className="flex-1 py-2 bg-black text-white font-semibold rounded-xl hover:bg-neutral-900 transition-colors text-sm">Remove</motion.button>
               </div>
             </motion.div>
           ))}

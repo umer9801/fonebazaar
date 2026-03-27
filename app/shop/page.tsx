@@ -98,7 +98,7 @@ function ShopContent() {
                     whileHover={{ x: 5 }}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all font-medium ${
                       selectedCategory === cat
-                        ? 'bg-indigo-600 text-white'
+                        ? 'bg-black text-white'
                         : 'text-gray-600 hover:text-black hover:bg-gray-100'
                     }`}
                   >
@@ -190,7 +190,7 @@ function ShopContent() {
                         <motion.button
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="w-full py-2 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-indigo-800 transition-all"
+                          className="w-full py-2 bg-black text-white font-semibold rounded-lg hover:bg-neutral-900 transition-all"
                         >
                           View Details
                         </motion.button>

@@ -39,6 +39,10 @@
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #e5e5e5;
   --sidebar-ring: #6366f1;
+  --gold: #FFD700;
+  --silver: #C0C0C0;
+  --premium-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --premium-gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
 }
 
 .dark {
@@ -77,8 +81,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: 'Geist', 'Inter', 'system-ui', sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -117,16 +121,65 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+@layer utilities {
+  .text-gold {
+    color: #FFD700;
   }
-  body {
-    @apply bg-background text-foreground;
+  .bg-gold {
+    background-color: #FFD700;
+  }
+  .border-gold {
+    border-color: #FFD700;
+  }
+  .text-silver {
+    color: #C0C0C0;
+  }
+  .bg-silver {
+    background-color: #C0C0C0;
+  }
+  .border-silver {
+    border-color: #C0C0C0;
+  }
+  .shadow-gold {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
   }
 }
 
-/* Custom animations for FONE BAZAAR */
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  .btn,
+  .button {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 1px solid #000 !important;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  button:hover,
+  input[type="button"]:hover,
+  input[type="submit"]:hover,
+  input[type="reset"]:hover,
+  .btn:hover,
+  .button:hover {
+    background-color: #333 !important;
+    color: #fff !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  button:active,
+  input[type="button"]:active,
+  input[type="submit"]:active,
+  input[type="reset"]:active,
+  .btn:active,
+  .button:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Premium animations */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -138,19 +191,19 @@
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
   }
   50% {
-    box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
   }
 }
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 0px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 0px rgba(255, 215, 0, 0.4);
   }
   50% {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
   }
 }
 
@@ -185,28 +238,43 @@
   }
 }
 
-
+@keyframes premium-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
 
 /* Selection styling */
 ::selection {
-  background: #6366f1;
-  color: #ffffff;
+  background: #FFD700;
+  color: #000;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-white;
+  @apply bg-gray-100;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6366f1;
-  border-radius: 5px;
+  background: linear-gradient(135deg, #000 0%, #333 100%);
+  border-radius: 6px;
+  border: 2px solid #f0f0f0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4f46e5;
+  background: linear-gradient(135deg, #333 0%, #666 100%);
 }

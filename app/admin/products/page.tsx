@@ -60,8 +60,8 @@ export default function AdminProductsPage() {
               <div className="text-right">
                 <p className="text-3xl font-extrabold text-black mb-4">${product.price}</p>
                 <div className="flex gap-2">
-                  <motion.button whileHover={{ scale: 1.05 }} className="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-colors text-sm">Edit</motion.button>
-                  <motion.button whileHover={{ scale: 1.05 }} className="px-4 py-2 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors text-sm">Delete</motion.button>
+                  <motion.button whileHover={{ scale: 1.05 }} className="px-4 py-2 bg-black text-white font-semibold rounded-xl hover:bg-neutral-900 transition-colors text-sm">Edit</motion.button>
+                  <motion.button whileHover={{ scale: 1.05 }} className="px-4 py-2 bg-black text-white font-semibold rounded-xl hover:bg-neutral-900 transition-colors text-sm">Delete</motion.button>
                 </div>
               </div>
             </div>
